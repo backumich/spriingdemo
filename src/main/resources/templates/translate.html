@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Vertex Translator</title>
+</head>
+<body>
+<form method="POST" th:object="${translationPair}">
+
+    <div class="field">
+        <label>English: </label>
+        <input type="text" th:field="*{wordFrom}">
+        <span th:if="${#fields.hasErrors('wordFrom')}" th:errors="*{wordFrom}">Name Error</span>
+    </div>
+
+    <div class="field">
+        Translation: <div th:text="${translationPair?.wordTo}"></div>
+    </div>
+
+    <input type="submit" value="translate"/>
+</form>
+</body>
+</html>
